@@ -1,0 +1,117 @@
+.login {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    .container {
+        width: 100%;
+        max-width: 1500px;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        // grid-template-rows: 1fr;
+        padding: 15px;
+        align-items: center;
+
+
+        .bg {
+            // width: 50%;
+            display: none;
+            height: 100%;
+            background: url('/login-img.webp');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .login-info{
+            padding: 0px 50px;
+
+            form {
+                .input-container {
+                    --c-text: rgb(50, 50, 80);
+                    --c-bg: rgb(252, 252, 252);
+                    --c-outline: rgb(0, 0 , 0);
+                    display: grid;
+                    gap: 1ch;
+                    position: relative;
+                    max-width: 290px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                  }
+
+                p {
+                    margin: 20px 0;
+                }
+                  
+                  .input-field {
+                    padding: 1em 0.75em;
+                    border-radius: 0.2em;
+                    background-color: #f7f7f7;
+                    color: var(--c-text);
+                    font-size: 0.75rem;
+                    letter-spacing: 0.1ch;
+                    width: 100%;
+                    border: none;
+                    
+                  }
+                  
+                  .input-field:not(:placeholder-shown) + .input-label {
+                    transform: translateY(-220%);
+                    opacity: 1;
+                  }
+                  
+                  .input-field:invalid {
+                    --c-border: rgb(230, 85, 60);
+                    --c-text: rgb(230, 85, 60);
+                    --c-outline: rgb(230, 85, 60);
+                  }
+                  
+                  .input-field:is(:disabled, :read-only) {
+                    --c-border: rgb(150, 150, 150);
+                    --c-text: rgb(170, 170, 170);
+                  }
+                  
+                  .input-field:is(:focus, :focus-visible) {
+                    outline: 2px solid var(--c-outline);
+                    outline-offset: 2px;
+                  }
+                  
+                  .input-label {
+                    
+                    font-weight: 400;
+                    font-size: 0.75em;
+                  }
+                  
+                  @media (prefers-reduced-motion: reduce) {
+                    .input-label {
+                      --timing: linear;
+                    }
+                  }
+                  
+                  @media (prefers-color-scheme: dark) {
+                    .input-container {
+                      --c-text: rgb(252, 252, 252);
+                      --c-bg: transparent;
+                    }
+                  }
+
+                  button {
+                    background-color: rgb(24, 24, 24);
+                    color: #f7f7f7;
+                    width: 100%;
+                    max-width: 290px;
+                    padding: 10px 0;
+                  }
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+          grid-template-columns: 1fr 1fr;
+
+          .bg {
+            display: unset;
+          }
+      }
+    }
+}
