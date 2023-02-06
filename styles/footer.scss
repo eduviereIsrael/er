@@ -1,0 +1,132 @@
+
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 72px;
+    padding-bottom: 130px;
+    width: 100%;
+    max-width: 1200px;
+
+    h2 {
+        font-family: 'Faktum', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 143%;
+        text-align: center;
+        margin-bottom: 29px;
+        color: #fff;
+    }
+    
+    p {
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 201.5%;
+        text-align: center;
+        margin-bottom: 58px;
+
+        width: 100%;
+    }
+
+    a {
+        padding: 21px 0;
+        width: 100%;
+
+        font-family: 'Montserrat' sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 150.5%;
+        text-align: center;
+
+        background-color: #fff;
+        color: #000;
+        border-radius: 10px;
+        margin-bottom: 88px;
+    }
+
+    .footer-bottom {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .brand-logo{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            span {
+                font-family: 'Faktum','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 25.8729px;
+                line-height: 137%;
+                margin-left: 7px;
+            }
+        }
+
+        .footer-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            a {
+                margin-bottom: 12px;
+                background-color: unset;
+                text-align: left;
+                color: #fff;
+
+                font-family: 'Montserrat',sans-serif;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 150.5%;
+            }
+        }
+    }
+
+
+    @media screen and (min-width: 768px) {
+        padding-top: 123px;
+        padding-bottom: 190px;
+
+        h2{
+            font-weight: 600;
+            font-size: 64px;
+            line-height: 128.5%;
+        }
+        p{
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 201.5%;
+        }
+        a{
+            width: unset;
+            padding: 21px 137px;
+        }
+
+        .footer-bottom {
+            .brand-logo{
+                span {
+                    font-weight: 700;
+                    font-size: 52.0828px;
+                    line-height: 137%;
+                }
+
+                img {
+                    width: 48.83px;
+                    height: 53.71px;
+                }
+            }
+        }
+    }
+
+}
