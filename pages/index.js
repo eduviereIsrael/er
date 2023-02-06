@@ -47,6 +47,18 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <div className='perks'>
+          <div className='container'>
+            <div className='message'>
+              <span>
+              What we do at Ephrael realty is that we have a pre-verified list of investment properties (mostly offplan) on our arsenal.</span>
+              <span>You don&apos;t need to start going through the hassle of checking a developers track record to see if he&apos;s built well or not. </span>
+              <span>We work with only the best developers to present you with the most mouth watering real estate deals in record time</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </MainLayout>
     

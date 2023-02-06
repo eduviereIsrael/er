@@ -1,6 +1,9 @@
+$main-color: #1C242B;
+$light-color: #F5F5F5;
 .container {
     padding: 40px 10px;
     max-width: 1200px;
+    width: 100%;
 
     @media screen and (min-width: 768px) {
         padding: 100px 40px;
@@ -65,5 +68,35 @@ h1 {
                 
             }
         }
+    }
+}
+
+.perks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $main-color;
+    width: 100%;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        .message{
+            background-color: $main-color;
+            border: 5px solid $light-color;
+            border-radius: 60px;
+            padding: 50px;
+            position: absolute;
+            top: -50px;
+
+            span{
+                font-size: 2.5vw;
+                color: $light-color;
+            }
+        }
+
     }
 }
