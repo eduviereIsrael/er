@@ -56,6 +56,32 @@ export default function Home() {
               <span>You don&apos;t need to start going through the hassle of checking a developers track record to see if he&apos;s built well or not. </span>
               <span>We work with only the best developers to present you with the most mouth watering real estate deals in record time</span>
             </div>
+            <div className='perks-div'>
+              <h2>We put our clients first.</h2>
+            <div className='perks-cont'>
+              <div className="perks-card">
+                <img src='/perks-icon.svg' />
+                <h5>Perks title</h5>
+                <p className='small-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
+              </div>
+              <div className="perks-card">
+                <img src='/perks-icon.svg' />
+                <h5>Perks title</h5>
+                <p className='small-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
+              </div>
+              <div className="perks-card">
+                <img src='/perks-icon.svg' />
+                <h5>Perks title</h5>
+                <p className='small-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
+              </div>
+              <div className="perks-card">
+                <img src='/perks-icon.svg' />
+                <h5>Perks title</h5>
+                <p className='small-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
+              </div>
+            </div>
+            </div>
+            
           </div>
         </div>
 
