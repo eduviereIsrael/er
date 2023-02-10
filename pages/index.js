@@ -94,15 +94,15 @@ export default function Home() {
                 <div className='problem-cont'>
                   <span className='p-item'>
                     <img src='/problem-icon.png' />
-                    <p>Not having enough money to start? We find you the right payment plan.</p>
+                    <p className='small-text'>Not having enough money to start? We find you the right payment plan.</p>
                   </span>
                   <span className='p-item'>
                     <img src='/problem-icon.png' />
-                    <p>Having no direction or place to find ideal and affordable properties? we&apos;ll do that for you.</p>
+                    <p className='small-text'>Having no direction or place to find ideal and affordable properties? we&apos;ll do that for you.</p>
                   </span>
                   <span className='p-item'>
                     <img src='/problem-icon.png' />
-                    <p>Having trust issues with real estate agents? we&apos;ll handle them for you.</p>
+                    <p className='small-text'>Having trust issues with real estate agents? we&apos;ll handle them for you.</p>
                   </span>
                 </div>
               </div>
