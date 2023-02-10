@@ -81,9 +81,36 @@ export default function Home() {
               </div>
             </div>
             </div>
+            <div className="problems-div">
+              <div className="img-div">
+                <div className='img-bg'></div>
+                <img src='problem-img2.png' className='img-1' />
+                <img src='problem-img2.png' className='img-3' />
+                <img src='problem-img1.png' className='img-2' />
+              </div>
+              <div className='problem-div'>
+                <h2>A realtor you can trust</h2>
+                <p>When you work with us, you never have to worry about problems like these:</p>
+                <div className='problem-cont'>
+                  <span className='p-item'>
+                    <img src='/problem-icon.png' />
+                    <p>Not having enough money to start? We find you the right payment plan.</p>
+                  </span>
+                  <span className='p-item'>
+                    <img src='/problem-icon.png' />
+                    <p>Having no direction or place to find ideal and affordable properties? we&apos;ll do that for you.</p>
+                  </span>
+                  <span className='p-item'>
+                    <img src='/problem-icon.png' />
+                    <p>Having trust issues with real estate agents? we&apos;ll handle them for you.</p>
+                  </span>
+                </div>
+              </div>
+            </div>
             
           </div>
         </div>
+        
 
       </div>
     </MainLayout>
