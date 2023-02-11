@@ -114,11 +114,64 @@ export default function Home() {
         <div className="listings">
           <div className="container">
             <h2>Featured Listings</h2>
-            <div className='listings-cont'></div>
+            <div className='listings-cont'>
+              
+            
+              <div className="listing-card" style={{background: `url('/propimg1.jpg')`, backgroundSize:'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat'}}>
+                <div className='card-details'>
+                  <div className='details-div'>
+                    <span><img src='/location-icon.png'/> <p className='smaller-text'>Lekki Phase 1, Lagos</p> </span>
+                    <span><img src='/rooms-icon.png' /><p className='smaller-text'>4 rooms</p></span>
+                  </div>
+                </div>
+              </div>
+              <div className="listing-card" style={{background: `url('/propimg2.jpg')`, backgroundSize:'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat'}}>
+                <div className='card-details'>
+                  <div className='details-div'>
+                    <span><img src='/location-icon.png'/> <p className='smaller-text'>Lekki Phase 1, Lagos</p> </span>
+                    <span><img src='/rooms-icon.png' /><p className='smaller-text'>4 rooms</p></span>
+                  </div>
+                </div>
+              </div>
+              <div className="listing-card" style={{background: `url('/propimg3.jpg')`, backgroundSize:'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat'}}>
+                <div className='card-details'>
+                  <div className='details-div'>
+                    <span><img src='/location-icon.png'/> <p className='smaller-text'>Lekki Phase 1, Lagos</p> </span>
+                    <span><img src='/rooms-icon.png' /><p className='smaller-text'>4 rooms</p></span>
+                  </div>
+                </div>
+              </div>
+              <div className="listing-card" style={{background: `url('/propimg4.jpg')`, backgroundSize:'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat'}}>
+                <div className='card-details'>
+                  <div className='details-div'>
+                    <span><img src='/location-icon.png'/> <p className='smaller-text'>Lekki Phase 1, Lagos</p> </span>
+                    <span><img src='/rooms-icon.png' /><p className='smaller-text'>4 rooms</p></span>
+                  </div>
+                </div>
+              </div>
+              <div className="listing-card" style={{background: `url('/propimg5.jpg')`, backgroundSize:'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat'}}>
+                <div className='card-details'>
+                  <div className='details-div'>
+                    <span><img src='/location-icon.png'/> <p className='smaller-text'>Lekki Phase 1, Lagos</p> </span>
+                    <span><img src='/rooms-icon.png' /><p className='smaller-text'>4 rooms</p></span>
+                  </div>
+                </div>
+              </div>
+              <div className="listing-card" style={{background: `url('/propimg6.jpg')`, backgroundSize:'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat'}}>
+                <div className='card-details'>
+                  <div className='details-div'>
+                    <span><img src='/location-icon.png'/> <p className='smaller-text'>Lekki Phase 1, Lagos</p> </span>
+                    <span><img src='/rooms-icon.png' /><p className='smaller-text'>4 rooms</p></span>
+                  </div>
+                </div>
+              </div>
+           
+         
+          
+              
+            </div>
           </div>
         </div>
-        
-
       </div>
     </MainLayout>
     
