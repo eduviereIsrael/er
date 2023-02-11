@@ -110,6 +110,13 @@ export default function Home() {
             
           </div>
         </div>
+
+        <div className="listings">
+          <div className="container">
+            <h2>Featured Listings</h2>
+            <div className='listings-cont'></div>
+          </div>
+        </div>
         
 
       </div>
