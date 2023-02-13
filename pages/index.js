@@ -49,12 +49,17 @@ export default function Home() {
  }
 
   useEffect(() => {
-    let offset = perkImgDivRef.current.offsetTop - 550;
-    setDivTopOffset(offset)
-    console.log(divTopOffset)
+    // setDivTopOffset(offset)
+    // console.log(divTopOffset)
+    let offset = perkImgDivRef.current.offsetTop - perkImgDivRef.current.clientHeight;
+
     window.addEventListener('scroll', () => {
+      // let offset = perkImgDivRef.current.offsetTop;
+      console.log(offset)
       if (window.scrollY > offset){
         window.addEventListener('wheel',handleScroll);
+      } else {
+        window.removeEventListener('wheel', handleScroll)
       }
     })
 }, []);
@@ -109,6 +114,7 @@ export default function Home() {
                 <p className='small-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
               </div>
             </div>
+            <div ref={perkImgDivRef}></div>
             </div>
             <div className="problems-div" ref={perkImgDivRef}>
               <div className="img-div" >
