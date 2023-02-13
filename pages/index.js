@@ -1,16 +1,16 @@
 /* eslint-disable*/
 
 import Head from 'next/head';
-import React,{useState} from 'react'
-import Image from 'next/image'
+import React,{useState, useEffect, useRef} from 'react';
+import Image from 'next/image';
 import axios from 'axios';
 import MainLayout from '../components/MainLayout';
 import SecondaryBtn from '../components/SecondaryBtn';
 
 export default function Home() {
-  const [name, setName] = useState() 
-  const [file, setFile] = useState()
-  const [images, setImages] = useState()
+  const [name, setName] = useState() ;
+  const [perkImgTop, setPerkImgTop] = useState(140);
+  const [divTopOffset, setDivTopOffset] = useState(0);
 
 
   const send = async (event) => {
@@ -30,6 +30,35 @@ export default function Home() {
       })
 
   }
+
+  const perkImgRef = useRef();
+  const perkImgDivRef = useRef();
+
+  const handleScroll = (event) => {
+    //scroll up
+    if (event.deltaY < 0) {
+       // do something
+       setPerkImgTop(prev => prev + 1);
+       console.log("scrolled down");
+    }
+    //scroll down
+    else if (event.deltaY > 0) {
+       setPerkImgTop(prev => prev - 1);
+       console.log("scrolled up");
+    }
+ }
+
+  useEffect(() => {
+    let offset = perkImgDivRef.current.offsetTop;
+    setDivTopOffset(offset)
+    console.log(divTopOffset)
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > offset-350){
+        window.addEventListener('wheel',handleScroll);
+      }
+    })
+}, []);
+  
   return (
     <MainLayout>
       <div>
@@ -56,7 +85,7 @@ export default function Home() {
               <span>You don&apos;t need to start going through the hassle of checking a developers track record to see if he&apos;s built well or not. </span>
               <span>We work with only the best developers to present you with the most mouth watering real estate deals in record time</span>
             </div>
-            <div className='perks-div'>
+            <div className='perks-div' >
               <h2>We put our clients first.</h2>
             <div className='perks-cont'>
               <div className="perks-card">
@@ -81,12 +110,12 @@ export default function Home() {
               </div>
             </div>
             </div>
-            <div className="problems-div">
-              <div className="img-div">
+            <div className="problems-div" ref={perkImgDivRef}>
+              <div className="img-div" >
                 <div className='img-bg'></div>
                 <img src='problem-img2.png' className='img-1' />
                 <img src='problem-img2.png' className='img-3' />
-                <img src='problem-img1.png' className='img-2' />
+                <img src='problem-img1.png' className='img-2' ref={perkImgRef} style={{top: `${perkImgTop}px`}} />
               </div>
               <div className='problem-div'>
                 <h2>A realtor you can trust</h2>
