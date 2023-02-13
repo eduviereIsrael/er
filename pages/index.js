@@ -38,13 +38,13 @@ export default function Home() {
     //scroll up
     if (event.deltaY < 0) {
        // do something
-       setPerkImgTop(prev => prev + 1);
-       console.log("scrolled down");
+       setPerkImgTop(prev => prev + 1.6);
+      //  console.log("scrolled down");
     }
     //scroll down
     else if (event.deltaY > 0) {
-       setPerkImgTop(prev => prev - 1);
-       console.log("scrolled up");
+       setPerkImgTop(prev => prev - 1.6);
+      //  console.log("scrolled up");
     }
  }
 
