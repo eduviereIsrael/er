@@ -49,11 +49,11 @@ export default function Home() {
  }
 
   useEffect(() => {
-    let offset = perkImgDivRef.current.offsetTop;
+    let offset = perkImgDivRef.current.offsetTop - 550;
     setDivTopOffset(offset)
     console.log(divTopOffset)
     window.addEventListener('scroll', () => {
-      if (window.scrollY > offset-350){
+      if (window.scrollY > offset){
         window.addEventListener('wheel',handleScroll);
       }
     })
