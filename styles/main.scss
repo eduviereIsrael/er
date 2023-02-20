@@ -1,6 +1,6 @@
-$main-color: #1C242B;
+$main-color: #191919;
 $light-color: #F5F5F5;
-$sec-color: #28323A;
+$sec-color: #212121;
 .container {
     padding: 40px 10px;
     max-width: 1200px;
@@ -135,7 +135,7 @@ p{
             // position: absolute;
             position: relative;
             top: -150px;
-            background: url('/message-bg.png');
+            background: url('/message-bg1.png');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -222,7 +222,7 @@ p{
                 .img-bg{
                     width: 60%;
                     height: 300px;
-                    background-color: #28323A;
+                    background-color: $sec-color;
                     border-radius: 15px;
                     position: absolute;
                     bottom: -70px;
