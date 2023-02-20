@@ -6,14 +6,14 @@ const SecondaryBtn = (props) => {
 
   const btnStyle = {
     background: 'none',
-    border: '1px solid #000',
+    border: `1px solid ${props.color? props.color : '#000' }`,
     outline: 'none',
     whiteSpace: 'nowrap',
-    borderRadius: '25px',
+    borderRadius: `${props.borderRadius? props.borderRadius : '25px' }`,
     padding: '15px 56px',
     fontSize: '13px',
     fontWeight: '400',
-    color: '#000',
+    color: `${props.color? props.color : '#000' }`,
     // display: 'flex',
     // flexDirection: 'row',
     // alignItems: 'center'

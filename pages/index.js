@@ -6,12 +6,39 @@ import Image from 'next/image';
 import axios from 'axios';
 import MainLayout from '../components/MainLayout';
 import SecondaryBtn from '../components/SecondaryBtn';
+import {GraphQLClient, gql} from 'graphql-request'
 
-export default function Home() {
+
+const graphCms = new GraphQLClient("https://api-eu-west-2.hygraph.com/v2/cle3apban0jyl01uh6btpejkt/master");
+
+const QUERY = gql`
+  {
+    propertyListings{
+      id,
+      address,
+      coverImage {
+        url
+      }
+    }
+  }
+`;
+
+  export async function getStaticProps(){
+    const {propertyListings} = await graphCms.request(QUERY);
+
+    return {
+      props: {
+        propertyListings,
+      },
+      revalidate: 10,
+    }
+  }
+
+export default function Home({propertyListings}) {
   const [name, setName] = useState() ;
   const [perkImgTop, setPerkImgTop] = useState(140);
   const [divTopOffset, setDivTopOffset] = useState(0);
-
+  // const [listingData, setListingData] = useS
 
   const send = async (event) => {
     const data = new FormData()
@@ -31,6 +58,18 @@ export default function Home() {
 
   }
 
+ 
+
+  // const fetchData = async() => {
+  //   const{listings} = await graphCms.request(QUERY);
+  //   console.log(listings);
+    
+  // }
+
+  // fetchData();
+
+  // console.dir(propertyListings)
+
   const perkImgRef = useRef();
   const perkImgDivRef = useRef();
 
@@ -38,12 +77,12 @@ export default function Home() {
     //scroll up
     if (event.deltaY < 0) {
        // do something
-       setPerkImgTop(prev => prev + 1.6);
+       setPerkImgTop(prev => prev + 2);
       //  console.log("scrolled down");
     }
     //scroll down
     else if (event.deltaY > 0) {
-       setPerkImgTop(prev => prev - 1.6);
+       setPerkImgTop(prev => prev - 2);
       //  console.log("scrolled up");
     }
  }
@@ -55,7 +94,7 @@ export default function Home() {
 
     window.addEventListener('scroll', () => {
       // let offset = perkImgDivRef.current.offsetTop;
-      console.log(offset)
+      // console.log(offset)
       if (window.scrollY > offset){
         window.addEventListener('wheel',handleScroll);
       } else {
@@ -78,6 +117,7 @@ export default function Home() {
             <div className='hero-div'>
               <h1>WE MAKE HOME OWNERSHIP IN LAGOS A SEAMLESS AND FULFILLING JOURNEY</h1>
               <SecondaryBtn text = 'Contact Us' link='/' />
+              {/* <h1>{listings.address}</h1> */}
             </div>
           </div>
         </div>
@@ -204,6 +244,23 @@ export default function Home() {
          
           
               
+            </div>
+          </div>
+        </div>
+
+        <div className='banner-cont'>
+          <div className="container">
+            <div className='banner'>
+              <div className='intro'>
+                <h3>In the last 2 years we have helped over 50 people find their dream homes in Lagos</h3>
+                <p className='smaller-text'>Feel free to reach out if you want us to do the same for you</p>
+                <SecondaryBtn link='' text="let's chat" color="#fff" borderRadius='10px' />
+              </div>
+              <div className='testimonials'>
+                <div className='t-card'>
+                  
+                </div>
+              </div>
             </div>
           </div>
         </div>
