@@ -84,13 +84,13 @@ export default function Home({propertyListings}) {
     }
  }
 
-  useEffect(() => {
-    // setDivTopOffset(offset)
-    // console.log(divTopOffset)
-    // let offset = perkImgDivRef.current.offsetTop - perkImgDivRef.current.clientHeight;
+//   useEffect(() => {
+//     // setDivTopOffset(offset)
+//     // console.log(divTopOffset)
+//     // let offset = perkImgDivRef.current.offsetTop - perkImgDivRef.current.clientHeight;
 
-    window.addEventListener('wheel', handleScroll);
-}, [perkImgTop]);
+//     window.addEventListener('wheel', handleScroll);
+// }, [perkImgTop]);
   
   return (
     <MainLayout>
@@ -149,8 +149,8 @@ export default function Home({propertyListings}) {
               <div className="img-div" >
                 <div className='img-bg'></div>
                 <img src='problem-img2.png' className='img-1' />
-                <img src='problem-img2.png' className='img-3' />
-                <img src='problem-img1.png' className='img-2' ref={perkImgRef} style={{top: `${perkImgTop}px`}} />
+                <img  src='problem-img2.png' className='img-3' />
+                <motion.img src='problem-img1.png' whileInView={{y: -100}} initial={{y: 0}} transition={{duration: 0.5}} className='img-2' ref={perkImgRef} style={{top: `${perkImgTop}px`}} />
               </div>
               <div className='problem-div'>
                 <h2>A realtor you can trust</h2>
