@@ -89,15 +89,7 @@ export default function Home({propertyListings}) {
     // console.log(divTopOffset)
     let offset = perkImgDivRef.current.offsetTop - perkImgDivRef.current.clientHeight;
 
-    window.addEventListener('scroll', () => {
-      // let offset = perkImgDivRef.current.offsetTop;
-      // console.log(offset)
-      // if (window.scrollY > offset){
-        window.addEventListener('wheel',handleScroll);
-      // } else {
-        // window.removeEventListener('wheel', handleScroll);
-      // }
-    })
+    window.addEventListener('wheel', handleScroll)
 }, []);
   
   return (
