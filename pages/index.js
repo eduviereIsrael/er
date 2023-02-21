@@ -62,13 +62,13 @@ export default function Home({propertyListings}) {
 
   // const fetchData = async() => {
   //   const{listings} = await graphCms.request(QUERY);
-  //   console.log(listings);
+    // console.log(listings);
     
   // }
 
   // fetchData();
 
-  // console.dir(propertyListings)
+  // console.dir(propertyListings);
 
   const perkImgRef = useRef();
   const perkImgDivRef = useRef();
@@ -264,6 +264,26 @@ export default function Home({propertyListings}) {
                 <div className='t-card'>
                   <p className='smaller-text'>I really love my apartment, 24hours light and water as earlier promised, thought it was a lie ut they've never taken this light. And I love how everything happened in less than a week.</p>
                   <span className='smaller-text'>Name</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="container">
+            <div className='partners-div'>
+              <h2>We work with powerful brands In the Industry</h2>
+              <div className='partners-cont'>
+                <div className='p-card'>
+                  <img src='/monumental.png'/>
+                </div>
+                <div className='p-card'>
+                  <img src='/rilwan.png'/>
+                </div>
+                <div className='p-card'>
+                  <img src='/sterling.png'/>
+                </div>
+                <div className='p-card'>
+                  <img src='/sunplanet.png'/>
                 </div>
               </div>
             </div>
