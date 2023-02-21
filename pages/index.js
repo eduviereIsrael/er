@@ -8,7 +8,7 @@ import MainLayout from '../components/MainLayout';
 import SecondaryBtn from '../components/SecondaryBtn';
 import {GraphQLClient, gql} from 'graphql-request';
 import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 
 
 const graphCms = new GraphQLClient("https://api-eu-west-2.hygraph.com/v2/cle3apban0jyl01uh6btpejkt/master");
@@ -40,9 +40,12 @@ export default function Home({propertyListings}) {
   const [name, setName] = useState() ;
   const [perkImgTop, setPerkImgTop] = useState(140);
   const [divTopOffset, setDivTopOffset] = useState(0);
+
   // const [listingData, setListingData] = useS
 
   const {ref, inView} = useInView();
+
+  const {scrollYProgress} = useScroll();
 
   const send = async (event) => {
     const data = new FormData()
@@ -65,21 +68,42 @@ export default function Home({propertyListings}) {
   const perkImgRef = useRef();
   const perkImgDivRef = useRef();
 
-  useEffect(() => {
-   console.log('Use effect hook =', inView)
-  }, [inView]);
   
+
+  // useEffect(() => {
+  //  console.log('Use effect hook =', inView)
+  // }, [inView]);
+  
+  useEffect(() => {
+    // window.addEventListener('wheel', () => {
+    //   let scrollDifference = scrollYProgress.current - scrollYProgress.prev * 0.1;
+    //   if(inView){
+    //     setPerkImgTop(prev => prev - scrollDifference)
+    //     console.log(scrollDifference, perkImgTop)
+
+    //   }
+    //   // save the above expression to a variable, update the variable on scroll and when the image is in view set the y value to it's previous value plus the varaible
+    // })
+    window.addEventListener('wheel', handleScroll);
+    // window.removeEventListener('wheel', handleScroll)
+  })
 
   const handleScroll = (event) => {
     //scroll up
-    if (event.deltaY < 0) {
+    let scrollDifference = scrollYProgress.current - scrollYProgress.prev + 0.01;
+
+    if ( inView && event.deltaY < 0) {
        // do something
-       setPerkImgTop(prev => prev + 0.02);
+      //  setPerkImgTop(prev => prev + 0.02);
+       setPerkImgTop(prev => prev + scrollDifference)
+
       //  console.log("scrolled down");
     }
     //scroll down
-    else if (event.deltaY > 0) {
-       setPerkImgTop(prev => prev - 0.02);
+    else if (inView && event.deltaY > 0) {
+      //  setPerkImgTop(prev => prev - 0.02);
+       setPerkImgTop(prev => prev - scrollDifference)
+
       //  console.log("scrolled up");
     }
  }
@@ -145,12 +169,12 @@ export default function Home({propertyListings}) {
             </div>
             <div ref={perkImgDivRef}></div>
             </div>
-            <div className="problems-div" ref={ref}>
+            <div className="problems-div" >
               <div className="img-div" >
                 <div className='img-bg'></div>
-                <img src='problem-img2.png' className='img-1' />
+                <img src='problem-img2.png' className='img-1' ref={ref} />
                 <img  src='problem-img2.png' className='img-3' />
-                <motion.img src='problem-img1.png' whileInView={{y: -100}} initial={{y: 0}} transition={{duration: 0.5}} className='img-2' ref={perkImgRef} style={{top: `${perkImgTop}px`}} />
+                <motion.img src='problem-img1.png' whileInView={{y: perkImgTop}} initial={{y: perkImgTop}} transition={{duration: 0.1}} className='img-2' ref={perkImgRef} /*style={{top: `${perkImgTop}px`}}*/ />
               </div>
               <div className='problem-div'>
                 <h2>A realtor you can trust</h2>
