@@ -6,7 +6,9 @@ import Image from 'next/image';
 import axios from 'axios';
 import MainLayout from '../components/MainLayout';
 import SecondaryBtn from '../components/SecondaryBtn';
-import {GraphQLClient, gql} from 'graphql-request'
+import {GraphQLClient, gql} from 'graphql-request';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 
 
 const graphCms = new GraphQLClient("https://api-eu-west-2.hygraph.com/v2/cle3apban0jyl01uh6btpejkt/master");
@@ -40,6 +42,8 @@ export default function Home({propertyListings}) {
   const [divTopOffset, setDivTopOffset] = useState(0);
   // const [listingData, setListingData] = useS
 
+  const {ref, inView} = useInView();
+
   const send = async (event) => {
     const data = new FormData()
     // data.append("name", name)
@@ -58,20 +62,13 @@ export default function Home({propertyListings}) {
 
   }
 
- 
-
-  // const fetchData = async() => {
-  //   const{listings} = await graphCms.request(QUERY);
-    // console.log(listings);
-    
-  // }
-
-  // fetchData();
-
-  // console.dir(propertyListings);
-
   const perkImgRef = useRef();
   const perkImgDivRef = useRef();
+
+  useEffect(() => {
+   console.log('Use effect hook =', inView)
+  }, [inView]);
+  
 
   const handleScroll = (event) => {
     //scroll up
@@ -95,11 +92,11 @@ export default function Home({propertyListings}) {
     window.addEventListener('scroll', () => {
       // let offset = perkImgDivRef.current.offsetTop;
       // console.log(offset)
-      if (window.scrollY > offset){
+      // if (window.scrollY > offset){
         window.addEventListener('wheel',handleScroll);
-      } else {
-        window.removeEventListener('wheel', handleScroll)
-      }
+      // } else {
+        // window.removeEventListener('wheel', handleScroll);
+      // }
     })
 }, []);
   
@@ -156,7 +153,7 @@ export default function Home({propertyListings}) {
             </div>
             <div ref={perkImgDivRef}></div>
             </div>
-            <div className="problems-div" ref={perkImgDivRef}>
+            <div className="problems-div" ref={ref}>
               <div className="img-div" >
                 <div className='img-bg'></div>
                 <img src='problem-img2.png' className='img-1' />
