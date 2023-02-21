@@ -23,16 +23,16 @@ const QUERY = gql`
   }
 `;
 
-  export async function getStaticProps(){
-    const {propertyListings} = await graphCms.request(QUERY);
+  // export async function getStaticProps(){
+  //   const {propertyListings} = await graphCms.request(QUERY);
 
-    return {
-      props: {
-        propertyListings,
-      },
-      revalidate: 10,
-    }
-  }
+  //   return {
+  //     props: {
+  //       propertyListings,
+  //     },
+  //     revalidate: 10,
+  //   }
+  // }
 
 export default function Home({propertyListings}) {
   const [name, setName] = useState() ;
