@@ -90,7 +90,7 @@ export default function Home({propertyListings}) {
 
   const handleScroll = (event) => {
     //scroll up
-    let scrollDifference = scrollYProgress.current - scrollYProgress.prev + 0.05;
+    let scrollDifference = scrollYProgress.current - scrollYProgress.prev + 0.03;
 
     if ( inView && event.deltaY < 0) {
        // do something
