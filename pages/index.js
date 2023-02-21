@@ -258,7 +258,12 @@ export default function Home({propertyListings}) {
               </div>
               <div className='testimonials'>
                 <div className='t-card'>
-                  
+                  <p className='smaller-text'>I must say, I had an amazing experience. Your service was on point, you gave me exactly what I wanted In a very short time. I'm impressed with both the house and the store. This is what I've been having a hard time getting and you made it happen in no time. Thanks a lot.</p>
+                  <span className='smaller-text'>Name</span>
+                </div>
+                <div className='t-card'>
+                  <p className='smaller-text'>I really love my apartment, 24hours light and water as earlier promised, thought it was a lie ut they've never taken this light. And I love how everything happened in less than a week.</p>
+                  <span className='smaller-text'>Name</span>
                 </div>
               </div>
             </div>
