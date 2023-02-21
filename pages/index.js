@@ -74,12 +74,12 @@ export default function Home({propertyListings}) {
     //scroll up
     if (event.deltaY < 0) {
        // do something
-       setPerkImgTop(prev => prev + 2);
+       setPerkImgTop(prev => prev + 0.02);
       //  console.log("scrolled down");
     }
     //scroll down
     else if (event.deltaY > 0) {
-       setPerkImgTop(prev => prev - 2);
+       setPerkImgTop(prev => prev - 0.02);
       //  console.log("scrolled up");
     }
  }
@@ -87,10 +87,10 @@ export default function Home({propertyListings}) {
   useEffect(() => {
     // setDivTopOffset(offset)
     // console.log(divTopOffset)
-    let offset = perkImgDivRef.current.offsetTop - perkImgDivRef.current.clientHeight;
+    // let offset = perkImgDivRef.current.offsetTop - perkImgDivRef.current.clientHeight;
 
-    window.addEventListener('wheel', handleScroll)
-}, []);
+    window.addEventListener('wheel', handleScroll);
+}, [perkImgTop]);
   
   return (
     <MainLayout>
