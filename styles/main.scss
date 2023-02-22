@@ -11,6 +11,10 @@ $sec-color: #212121;
     }
 }
 
+h2,h3, h4,h5,h6{
+    margin: 0;
+}
+
 h1 {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 6vw;
@@ -22,6 +26,17 @@ h1 {
     }
     
 }
+
+h2{
+    margin-bottom: 30px;
+    font-size: 5vw;
+    @media screen and (min-width: 768px) {
+        font-size: 2.4vw;
+        
+    }
+}
+
+
 
 
 
@@ -312,7 +327,7 @@ p{
             // flex-wrap: wrap;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 40px;
 
             div{
                 width: 100%;
@@ -353,7 +368,9 @@ p{
                             display: flex;
                             align-items: center;
                             img {
-                                margin-right: 10px;
+                                margin: 10px;
+                                // width: 20px;
+                                height: 20px;
                             }
 
                             p {
@@ -493,6 +510,70 @@ p{
                  grid-template-columns: 1fr 1fr 1fr 1fr;
                     
                 }
+            }
+        }
+    }
+}
+
+.blogs{
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    background-color: #fff;
+
+    .container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .blog-cont{
+            width: 100%;
+            // display: flex;
+            // flex-direction: row;
+            // justify-content: space-between;
+            // flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            // align-items: center;
+            gap: 60px;
+            // padding: 0 100px;
+
+            .blog-card{
+                width: 100%;
+                // max-width: 300px;
+
+                .details{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    width: 100%;
+
+                    .tags{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 100%;
+                        margin: 10px 0;
+
+                        .minutes{
+                            background-color: #F4F4F9;
+                            padding: 5px 10px;
+                            border-radius: 3px;
+                        }
+                    }
+                }
+
+                img{
+                    width: 100%;
+                }
+            }
+
+            @media screen and (min-width: 768px) {
+                gap: 40px;
+                padding: unset;
             }
         }
     }

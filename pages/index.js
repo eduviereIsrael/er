@@ -9,6 +9,7 @@ import SecondaryBtn from '../components/SecondaryBtn';
 import {GraphQLClient, gql} from 'graphql-request';
 import { useInView } from 'react-intersection-observer';
 import { motion, useScroll } from 'framer-motion';
+import BlogCard from '../components/BlogCard';
 
 
 const graphCms = new GraphQLClient("https://api-eu-west-2.hygraph.com/v2/cle3apban0jyl01uh6btpejkt/master");
@@ -41,81 +42,50 @@ export default function Home({propertyListings}) {
   const [perkImgTop, setPerkImgTop] = useState(140);
   const [divTopOffset, setDivTopOffset] = useState(0);
 
-  // const [listingData, setListingData] = useS
-
   const {ref, inView} = useInView();
 
   const {scrollYProgress} = useScroll();
-
-  const send = async (event) => {
-    const data = new FormData()
-    // data.append("name", name)
-    data.append("file", file[0])
-    
-    await axios.post("/.netlify/functions/server/profile", data)
-      .then(res => {
-        // console.log(res);
-        setImages(res.data.imgs)
-        // console.log(images)
-
-      })
-      .catch(err => {
-        console.log(err)
-      })
-
-  }
-
-  const perkImgRef = useRef();
-  const perkImgDivRef = useRef();
-
-  
-
-  // useEffect(() => {
-  //  console.log('Use effect hook =', inView)
-  // }, [inView]);
-  
-  useEffect(() => {
-    // window.addEventListener('wheel', () => {
-    //   let scrollDifference = scrollYProgress.current - scrollYProgress.prev * 0.1;
-    //   if(inView){
-    //     setPerkImgTop(prev => prev - scrollDifference)
-    //     console.log(scrollDifference, perkImgTop)
-
-    //   }
-    //   // save the above expression to a variable, update the variable on scroll and when the image is in view set the y value to it's previous value plus the varaible
-    // })
-    window.addEventListener('wheel', handleScroll);
-    // window.removeEventListener('wheel', handleScroll)
-  })
 
   const handleScroll = (event) => {
     //scroll up
     let scrollDifference = scrollYProgress.current - scrollYProgress.prev + 0.03;
 
     if ( inView && event.deltaY < 0) {
-       // do something
-      //  setPerkImgTop(prev => prev + 0.02);
        setPerkImgTop(prev => prev + scrollDifference)
 
-      //  console.log("scrolled down");
     }
     //scroll down
     else if (inView && event.deltaY > 0) {
-      //  setPerkImgTop(prev => prev - 0.02);
        setPerkImgTop(prev => prev - scrollDifference)
 
-      //  console.log("scrolled up");
     }
  }
+  useEffect(() => {
+ 
+    window.addEventListener('wheel', handleScroll);
+  })
 
-//   useEffect(() => {
-//     // setDivTopOffset(offset)
-//     // console.log(divTopOffset)
-//     // let offset = perkImgDivRef.current.offsetTop - perkImgDivRef.current.clientHeight;
-
-//     window.addEventListener('wheel', handleScroll);
-// }, [perkImgTop]);
-  
+  const blogs = [
+    {
+      title: "3 things you must check before settling into your new apartment.",
+      date: "24th Nov 2022",
+      image: "/blogimg1.png",
+      readTime: "4"
+    },
+    {
+      title: "Factors to consider when picking a location for your new home.",
+      date: "4th Nov 2022",
+      image: "/blogimg2.png",
+      readTime: "5"
+    },
+    {
+      title: "Never do this 5 things when investing in Real Estate.",
+      date: "16th Dec 2022",
+      image: "/blogimg3.png",
+      readTime: "2"
+    },
+  ]
+// 1.06496  1.06573
   return (
     <MainLayout>
       <div>
@@ -167,14 +137,14 @@ export default function Home({propertyListings}) {
                 <p className='small-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
               </div>
             </div>
-            <div ref={perkImgDivRef}></div>
+            {/* <div ref={perkImgDivRef}></div> */}
             </div>
             <div className="problems-div" >
               <div className="img-div" >
                 <div className='img-bg'></div>
                 <img src='problem-img2.png' className='img-1' ref={ref} />
                 <img  src='problem-img2.png' className='img-3' />
-                <motion.img src='problem-img1.png' whileInView={{y: perkImgTop}} initial={{y: perkImgTop}} transition={{duration: 0.1}} className='img-2' ref={perkImgRef} /*style={{top: `${perkImgTop}px`}}*/ />
+                <motion.img src='problem-img1.png' whileInView={{y: perkImgTop}} initial={{y: perkImgTop}} transition={{duration: 0}} className='img-2' /*style={{top: `${perkImgTop}px`}}*/ />
               </div>
               <div className='problem-div'>
                 <h2>A realtor you can trust</h2>
@@ -299,6 +269,17 @@ export default function Home({propertyListings}) {
                   <img src='/sunplanet.png'/>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="blogs">
+          <div className="container">
+            <h2>Stay Informed with our latest blogs</h2>
+            <div className='blog-cont'>
+              {blogs.map((item, i) => (
+                <BlogCard key={i} image={item.image} title={item.title} readTime={item.readTime} date={item.date}  />
+              ))}
             </div>
           </div>
         </div>
