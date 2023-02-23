@@ -21,27 +21,28 @@ const QUERY = gql`
       address,
       coverImage {
         url
-      }
+      },
+      shortInfo
     }
   }
 `;
 
-  // export async function getStaticProps(){
-  //   const {propertyListings} = await graphCms.request(QUERY);
+  export async function getStaticProps(){
+    const {propertyListings} = await graphCms.request(QUERY);
 
-  //   return {
-  //     props: {
-  //       propertyListings,
-  //     },
-  //     revalidate: 10,
-  //   }
-  // }
+    return {
+      props: {
+        propertyListings,
+      },
+      revalidate: 10,
+    }
+  }
 
 export default function Home({propertyListings}) {
   const [name, setName] = useState() ;
   const [perkImgTop, setPerkImgTop] = useState(140);
   const [divTopOffset, setDivTopOffset] = useState(0);
-
+  const [data, setData] = useState();
   const {ref, inView} = useInView();
 
   const {scrollYProgress} = useScroll();
@@ -61,8 +62,9 @@ export default function Home({propertyListings}) {
     }
  }
   useEffect(() => {
- 
+    // setData(...propertyListings);
     window.addEventListener('wheel', handleScroll);
+    // console.log(data)
   })
 
   const blogs = [
@@ -173,17 +175,21 @@ export default function Home({propertyListings}) {
           <div className="container">
             <h2>Featured Listings</h2>
             <div className='listings-cont'>
-              
-            
-              <div className="listing-card" style={{background: `url('/propimg1.jpg')`, backgroundSize:'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat'}}>
-                <div className='card-details'>
-                  <div className='details-div'>
-                    <span><img src='/location-icon.svg'/> <p className='smaller-text'>Lekki Phase 1, Lagos</p> </span>
-                    <span><img src='/rooms-icon.svg' /><p className='smaller-text'>4 rooms</p></span>
+              {propertyListings.map((item) => (
+                <div className="listing-card" key={item.id} style={{background: `url(${item.coverImage.url})`, backgroundSize:'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat'}}>
+                  <div className='card-details'>
+                    <div className='details-div'>
+                      <span><img src='/location-icon.svg'/> <p className='smaller-text'>{item.address}</p> </span>
+                      <span><img src='/rooms-icon.svg' /><p className='smaller-text'>{item.shortInfo}</p></span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="listing-card" style={{background: `url('/propimg2.jpg')`, backgroundSize:'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat'}}>
+                // <h1 key={item.id}>{item.address}</h1>
+                ))}
+            
+              
+
+              {/* <div className="listing-card" style={{background: `url('/propimg2.jpg')`, backgroundSize:'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat'}}>
                 <div className='card-details'>
                   <div className='details-div'>
                     <span><img src='/location-icon.svg'/> <p className='smaller-text'>Lekki Phase 1, Lagos</p> </span>
@@ -222,11 +228,8 @@ export default function Home({propertyListings}) {
                     <span><img src='/rooms-icon.svg' /><p className='smaller-text'>4 rooms</p></span>
                   </div>
                 </div>
-              </div>
-           
-         
-          
-              
+              </div> */}
+
             </div>
           </div>
         </div>
