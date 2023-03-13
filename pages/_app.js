@@ -5,6 +5,7 @@ import '../styles/footer.scss';
 import '../styles/login.scss';
 import '../styles/layout.scss';
 import '../styles/admin.scss';
+import '../styles/mobilemenu.scss';
 import { StateContext } from '../Context/StateContext';
 
 function MyApp({ Component, pageProps }) {

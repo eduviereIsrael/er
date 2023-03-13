@@ -7,6 +7,7 @@ const Context = createContext();
 export const StateContext = ({children}) => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [activeNavbar, setActiveNavbar] = useState(false);
     const [listings, setListings] = useState([]);
     const [token, setToken] = useState('');
     const router = useRouter();
@@ -30,6 +31,8 @@ export const StateContext = ({children}) => {
                 token,
                 setToken,
                 checkLogin,
+                activeNavbar,
+                setActiveNavbar
             }}
             >
             {children}

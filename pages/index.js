@@ -11,6 +11,9 @@ import { useInView } from 'react-intersection-observer';
 import { motion, useScroll } from 'framer-motion';
 import BlogCard from '../components/BlogCard';
 import Propertycard from '../components/PropertyCard';
+import MobileMenu from '../components/MobileMenu';
+import { useStateContext } from '../Context/StateContext';
+
 
 
 const graphCms = new GraphQLClient("https://api-eu-west-2.hygraph.com/v2/cle3apban0jyl01uh6btpejkt/master");
@@ -47,6 +50,8 @@ export default function Home({propertyListings}) {
   const {ref, inView} = useInView();
 
   const {scrollYProgress} = useScroll();
+  const { activeNavbar} = useStateContext();
+
 
   const handleScroll = (event) => {
     //scroll up
@@ -62,6 +67,7 @@ export default function Home({propertyListings}) {
 
     }
  }
+
   useEffect(() => {
     // setData(...propertyListings);
     window.addEventListener('wheel', handleScroll);
@@ -236,6 +242,8 @@ export default function Home({propertyListings}) {
           </div>
         </div>
       </div>
+      {activeNavbar? <MobileMenu /> : '' }
+    
     </MainLayout>
     
   )

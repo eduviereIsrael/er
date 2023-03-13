@@ -5,12 +5,16 @@ import {useState, useEffect} from 'react';
 import Link from 'next/link';
 import PrimaryBtn from './PrimaryBtn';
 import SecondaryBtn from './SecondaryBtn';
+import { motion } from 'framer-motion';
+import { useStateContext } from '../Context/StateContext';
 
 const Navbar = () => {
 
   
   const [navClick, setNavClick] = useState(false)
   const [scroll, setScroll] = useState(false)
+
+  const { activeNavbar, setActiveNavbar } = useStateContext();
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -35,6 +39,12 @@ const Navbar = () => {
                         <img src='/logo.svg' className='logo'  alt='Ephrael Realty Logo'/>
                     </Link>
 
+                    <div className='hambuger-menu' onClick={() => setActiveNavbar(!activeNavbar)}>
+                        <div className='top'>-</div>
+                        <div className='middle'>-</div>
+                        <div className='bottom'>-</div>
+                    </div>
+
                     <div className="nav-cta">
                         <PrimaryBtn text="Chat With Us" link='/' img='/whatsapp-icon.svg' />
                         <SecondaryBtn text="Call Now" link='/' img='/phone-icon.svg' />
@@ -47,15 +57,6 @@ const Navbar = () => {
                     <span><Link href='/'><p>Contact</p></Link></span>
                 </div>
                 <div className="lower-part"></div>
-            </div>
-        </div>
-        <div className={navClick? "mob-menu-div menu-show": "mob-menu-div "}>
-            <div className="mob-menu-div-cont">
-                <a href=''>Benefits</a>
-                <a href=''>Recent Works</a>
-                <a href=''>Scope of Work</a>
-                <a href=''>Pricing</a>
-                <a href=''>FAQs</a>
             </div>
         </div>
     </>

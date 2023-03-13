@@ -38,6 +38,13 @@
                     
                 }
             }
+
+            .hambuger-menu{
+                display: flex;
+                @media screen and (min-width: 768px) {
+                   display: none;
+                }
+            }
         }
 
         .lower-part{
@@ -87,64 +94,3 @@
 }
 
 
-.window-scroll {
-    background-color: #fff;
-}
-
-.mob-menu-div {
-    display: block;
-    width: 100vw;
-    background-color: #100024;
-    position: fixed;
-    transform: translateY(-2000px);
-    // top: -100px;
-    transition: all .5s ease;
-    z-index: 4;
-
-    .mob-menu-div-cont {
-        box-sizing: border-box;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        width: 100%;
-        // gap: 22px;
-
-        padding: 36px 21px;
-
-        a {
-            color: #fff;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            margin-bottom: 22px;
-        }
-
-    }
-
-    @media screen and (min-width: 768px) {
-        display: none;
-        
-    }
-}
-
-// navbar animation styles
-
-.spin {
-    transform: rotate(90deg);
-}
-.spin .dis{
-    // display: none;
-    opacity: 0;
-}
-
-.spin .spins{
-    transform: rotate(45deg) translateY(4px);
-}
-.spin .spins-i{
-    transform: rotate(-45deg) translateY(-4px);
-}
-
-.menu-show {
-    transform: translateY(0px);
-    // background-color: red;
-}
