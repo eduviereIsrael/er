@@ -10,13 +10,15 @@ const SecondaryBtn = (props) => {
     outline: 'none',
     whiteSpace: 'nowrap',
     borderRadius: `${props.borderRadius? props.borderRadius : '25px' }`,
-    padding: '15px 56px',
-    fontSize: '13px',
+    padding: `${ !props.width? '15px 56px' : '15px'}`,
+    fontSize: `${ props.fontSize? props.fontSize : '13px'}`,
     fontWeight: '400',
     color: `${props.color? props.color : '#000' }`,
+    width: `${props.width? props.width : 'unset'}`,
     // display: 'flex',
     // flexDirection: 'row',
-    // alignItems: 'center'
+    // alignItems: 'center',
+    textAlign: "center",
   };
 
 //   const btnTextStyle = {
