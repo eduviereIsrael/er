@@ -40,9 +40,9 @@ const Navbar = () => {
                     </Link>
 
                     <div className='hambuger-menu' onClick={() => setActiveNavbar(!activeNavbar)}>
-                        <div className='top'>-</div>
-                        <div className='middle'>-</div>
-                        <div className='bottom'>-</div>
+                        <div className='top'></div>
+                        <div className='middle'></div>
+                        <div className='bottom'></div>
                     </div>
 
                     <div className="nav-cta">
