@@ -2,11 +2,14 @@
 
 import {GraphQLClient, gql} from 'graphql-request';
 import MainLayout from "../../components/MainLayout";
-
-import React, { Component } from 'react';
+import { useStateContext } from '../../Context/StateContext';
+import React, { Component, useState } from 'react';
 import Link from "next/link"
 
 function PropertyListingPage({propertyListing}){
+  const {address, title, availability, coverImage, otherImages} = propertyListing;
+
+    // const {coverImg, setCoverImg} = useStateContext();
     // console.log(propertyListing);
     const availabilityTags = (x) => {
       if (x == "now_selling"){
@@ -17,7 +20,9 @@ function PropertyListingPage({propertyListing}){
         return "Sold"
       }
     }
-    const {address, title, availability, coverImage, otherImages} = propertyListing;
+    const [coverImg, setCoverImg] = useState(coverImage.url);
+
+    // setCoverImg(coverImage.url);
     return (
       <MainLayout>
         <div className="slug-page">
@@ -25,7 +30,21 @@ function PropertyListingPage({propertyListing}){
             <div className="main-section">
             <h1>{title}</h1>
             <p className="smaller-text availability-tags">{availabilityTags(availability)}</p>
-            <img src={coverImage.url} alt={title} className="coverImage"/>
+            <div className="mainImage" >
+              <img src={coverImg} alt={title} className="coverImage"/>
+            </div>
+            <div className="all-images">
+              {otherImages.map((img, i) => (
+                <div 
+                  key={i} 
+                  style={{background: `url(${img.url})`, backgroundSize: 'cover'}} className="thumbnail-img"
+                  onMouseOver={() => setCoverImg(img.url)}
+                  onClick={() => setCoverImg(img.url)}
+                >
+                {/* <img src={img.url} className="thumbnail-img" /> */}
+                </div>
+              ))}
+            </div>
             </div>
             <div className="right-section">Hello</div>
             

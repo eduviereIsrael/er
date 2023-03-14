@@ -10,6 +10,7 @@ export const StateContext = ({children}) => {
     const [activeNavbar, setActiveNavbar] = useState(false);
     const [listings, setListings] = useState([]);
     const [token, setToken] = useState('');
+    const [coverImg, setCoverImg] = useState('');
     const router = useRouter();
 
     const checkLogin = () => {
@@ -32,7 +33,9 @@ export const StateContext = ({children}) => {
                 setToken,
                 checkLogin,
                 activeNavbar,
-                setActiveNavbar
+                setActiveNavbar,
+                coverImg,
+                setCoverImg
             }}
             >
             {children}
