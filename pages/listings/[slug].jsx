@@ -7,7 +7,14 @@ import React, { Component, useState } from 'react';
 import Link from "next/link"
 
 function PropertyListingPage({propertyListing}){
-  const {address, title, availability, coverImage, otherImages} = propertyListing;
+  const {address, 
+        title, 
+        availability, 
+        coverImage, 
+        otherImages, 
+        detailedDescription, 
+        longDescription
+      } = propertyListing;
 
     // const {coverImg, setCoverImg} = useStateContext();
     // console.log(propertyListing);
@@ -28,23 +35,34 @@ function PropertyListingPage({propertyListing}){
         <div className="slug-page">
           <div className="container">
             <div className="main-section">
-            <h1>{title}</h1>
-            <p className="smaller-text availability-tags">{availabilityTags(availability)}</p>
-            <div className="mainImage" >
-              <img src={coverImg} alt={title} className="coverImage"/>
-            </div>
-            <div className="all-images">
-              {otherImages.map((img, i) => (
-                <div 
-                  key={i} 
-                  style={{background: `url(${img.url})`, backgroundSize: 'cover'}} className="thumbnail-img"
-                  onMouseOver={() => setCoverImg(img.url)}
-                  onClick={() => setCoverImg(img.url)}
-                >
-                {/* <img src={img.url} className="thumbnail-img" /> */}
-                </div>
-              ))}
-            </div>
+              <h1>{title}</h1>
+              <p className="smaller-text availability-tags">{availabilityTags(availability)}</p>
+              <div className="mainImage" >
+                <img src={coverImg} alt={title} className="coverImage"/>
+              </div>
+              <div className="all-images">
+                {otherImages.map((img, i) => (
+                  <div 
+                    key={i} 
+                    style={{background: `url(${img.url})`, backgroundSize: 'cover'}} className="thumbnail-img"
+                    onMouseOver={() => setCoverImg(img.url)}
+                    onClick={() => setCoverImg(img.url)}
+                  >
+                  {/* <img src={img.url} className="thumbnail-img" /> */}
+                  </div>
+                ))}
+              </div>
+              <div className="details">
+                <h2>Some insights on this property</h2>
+                <p className='small-text'>{longDescription}</p>
+
+                <h3>Key Features includes: </h3>
+                <ul>
+                  {detailedDescription.map((feature, i) => (
+                    <p key={i} className="small-text">{feature}</p>
+                  ))}
+                </ul>
+              </div>
             </div>
             <div className="right-section">Hello</div>
             
@@ -77,7 +95,9 @@ const QUERY = gql`
       otherImages {
         url
       },
-      shortInfo
+      shortInfo,
+      detailedDescription,
+      longDescription
     }
   }
 `;
