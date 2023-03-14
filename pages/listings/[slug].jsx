@@ -1,14 +1,36 @@
+/* eslint-disable */
+
 import {GraphQLClient, gql} from 'graphql-request';
 import MainLayout from "../../components/MainLayout";
 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Link from "next/link"
 
 function PropertyListingPage({propertyListing}){
-    console.log(propertyListing);
-    const {address, title} = propertyListing;
+    // console.log(propertyListing);
+    const availabilityTags = (x) => {
+      if (x == "now_selling"){
+        return 'Now Selling'
+      } else if (x == "coming_soon"){
+        return "Coming Soon"
+      } else {
+        return "Sold"
+      }
+    }
+    const {address, title, availability, coverImage, otherImages} = propertyListing;
     return (
       <MainLayout>
-        <div>Hello from {title}</div>
+        <div className="slug-page">
+          <div className="container">
+            <div className="main-section">
+            <h1>{title}</h1>
+            <p className="smaller-text availability-tags">{availabilityTags(availability)}</p>
+            <img src={coverImage.url} alt={title} className="coverImage"/>
+            </div>
+            <div className="right-section">Hello</div>
+            
+          </div>
+        </div>
       </MainLayout>
     )
 }
@@ -29,7 +51,11 @@ const QUERY = gql`
       address,
       slug,
       title,
+      availability,
       coverImage {
+        url
+      },
+      otherImages {
         url
       },
       shortInfo

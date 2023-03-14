@@ -1,0 +1,40 @@
+.slug-page{
+    display: flex;
+    // align-items: center;
+    // background-color: red;
+    justify-content: center;
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        // background-color: blue;
+        .main-section {
+            h1{
+                margin: 0;
+                margin-bottom: 30px;
+            }
+            .availability-tags{
+                padding: 5px 10px;
+                border-radius: 3px;
+                background-color: #ebebeb;
+                font-weight: 600;
+                width: fit-content;
+                margin-bottom: 20px;
+            }
+    
+            .coverImage {
+                width: 100%;
+                border-radius: 40px;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            grid-template-columns: 4fr 1fr;
+            
+        }
+        
+    }
+}

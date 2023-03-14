@@ -6,6 +6,7 @@ import '../styles/login.scss';
 import '../styles/layout.scss';
 import '../styles/admin.scss';
 import '../styles/mobilemenu.scss';
+import '../styles/slugpage.scss';
 import { StateContext } from '../Context/StateContext';
 
 function MyApp({ Component, pageProps }) {
