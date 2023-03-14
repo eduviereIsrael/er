@@ -23,6 +23,7 @@ const QUERY = gql`
     propertyListings{
       id,
       address,
+      slug,
       coverImage {
         url
       },

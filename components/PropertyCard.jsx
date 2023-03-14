@@ -1,5 +1,6 @@
 /* eslint-disable */
 import SecondaryBtn from "./SecondaryBtn";
+import Link from "next/link";
 
 const Propertycard = ({item}) => {
     return (
@@ -9,9 +10,10 @@ const Propertycard = ({item}) => {
                 <span><img src='/location-icon.svg'/> <p className='smaller-text'>{item.address}</p> </span>
                 <span><img src='/rooms-icon.svg' /><p className='smaller-text'>{item.shortInfo}</p></span>
             </div>
-            <SecondaryBtn link='' text="view property" borderRadius ="10px" color="#fff" width="100%" fontSize = "15px" />
+            <SecondaryBtn link={`/listings/${item.slug}`} text="view property" borderRadius ="10px" color="#fff" width="100%" fontSize = "15px" />
             </div>
         </div>
+        
     )
 }
 

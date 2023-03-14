@@ -39,7 +39,10 @@ const Navbar = () => {
                         <img src='/logo.svg' className='logo'  alt='Ephrael Realty Logo'/>
                     </Link>
 
-                    <div className='hambuger-menu' onClick={() => setActiveNavbar(!activeNavbar)}>
+                    <div className='hambuger-menu' onClick={() => {
+                        setActiveNavbar(!activeNavbar)
+                        alert("Hello")
+                        }}>
                         <div className='top'></div>
                         <div className='middle'></div>
                         <div className='bottom'></div>
