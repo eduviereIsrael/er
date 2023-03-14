@@ -37,20 +37,6 @@ const QUERY = gql`
   }
 `;
 
-// const QUERY = gql`
-// {
-//     propertyListing(where: {slug: $slug}){
-//       id,
-//       address,
-//       slug,
-//       coverImage {
-//         url
-//       },
-//       shortInfo
-//     }
-//   }
-// `;
-
 const SLUGLIST = gql `
 {
   propertyListings{

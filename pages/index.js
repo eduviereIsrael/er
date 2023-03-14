@@ -11,7 +11,6 @@ import { useInView } from 'react-intersection-observer';
 import { motion, useScroll } from 'framer-motion';
 import BlogCard from '../components/BlogCard';
 import Propertycard from '../components/PropertyCard';
-import MobileMenu from '../components/MobileMenu';
 import { useStateContext } from '../Context/StateContext';
 
 
@@ -243,7 +242,6 @@ export default function Home({propertyListings}) {
           </div>
         </div>
       </div>
-      {activeNavbar? <MobileMenu /> : '' }
     
     </MainLayout>
     
