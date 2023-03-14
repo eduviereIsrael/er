@@ -20,7 +20,7 @@ const footer = () => {
             <Link href="/">
               <p>Home</p>
             </Link>
-            <Link href="/">
+            <Link href="listings">
               <p>Listings</p>
             </Link>
             <Link href="/">

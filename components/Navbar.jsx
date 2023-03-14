@@ -55,11 +55,11 @@ const Navbar = () => {
                 </div>
                 <div className="lower-part">
                     <span><Link href='/'><p>Home</p></Link></span>
-                    <span><Link href='/'><p>Listings</p></Link></span>
+                    <span><Link href='/listings'><p>Listings</p></Link></span>
                     <span><Link href='/'><p>Blogs</p></Link></span>
                     <span><Link href='/'><p>Contact</p></Link></span>
                 </div>
-                <div className="lower-part"></div>
+                {/* <div className="lower-part"></div> */}
             </div>
         </div>
     </>

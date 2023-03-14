@@ -31,7 +31,7 @@ const QUERY = gql`
   }
 `;
 
-  export async function getStaticProps(){
+export async function getStaticProps(){
     const {propertyListings} = await graphCms.request(QUERY);
 
     return {
@@ -40,7 +40,7 @@ const QUERY = gql`
       },
       revalidate: 10,
     }
-  }
+}
 
 export default function Home({propertyListings}) {
   const [name, setName] = useState() ;
