@@ -1,9 +1,9 @@
 import React from 'react'
 
-const BlogPage = () => {
+const BlogsPage = () => {
   return (
     <div>index</div>
   )
 }
 
-export default BlogPage;
+export default BlogsPage;
