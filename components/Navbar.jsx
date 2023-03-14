@@ -41,7 +41,6 @@ const Navbar = () => {
 
                     <div className='hambuger-menu' onClick={() => {
                         setActiveNavbar(!activeNavbar)
-                        alert("Hello")
                         }}>
                         <div className='top'></div>
                         <div className='middle'></div>
