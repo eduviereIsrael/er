@@ -113,7 +113,7 @@ const ListingsPage = ({propertyListings}) => {
                             // console.log(item)
                           ))}
                         </div>
-                        <PrimaryBtn link={`/listings/${slug}`} text="view property" borderRadius ="10px" color="#fff" width="100%" fontSize = "15px" />
+                        <PrimaryBtn link={`/listings/${slug}`} text="View Property" borderRadius ="10px" color="#fff" width="100%" fontSize = "15px" />
 
                       </div>
                     ))

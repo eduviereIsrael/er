@@ -36,6 +36,9 @@
             .listing-tags{
                 display: flex;
                 flex-direction: row;
+                margin-top: 60px;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
 
                 .listing-tag{
                     padding: 10px 15px;
@@ -44,8 +47,9 @@
                     color: #000;
                     font-size: 13px;
                     font-weight: 500;
-                    margin: 0 20px;
+                    margin: 0 10px;
                     font-family: Arial, Helvetica, sans-serif;
+                    white-space: nowrap;
 
                     &:hover {
                         cursor: pointer;
