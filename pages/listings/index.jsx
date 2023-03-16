@@ -1,7 +1,11 @@
+/* eslint-disable */
+
 import React from 'react';
 import { GraphQLClient, gql } from 'graphql-request';
 import MainLayout from "../../components/MainLayout"
-
+// import SecondaryBtn from '../../components/SecondaryBtn';
+import PrimaryBtn from '../../components/PrimaryBtn';
+import { motion } from 'framer-motion';
 
 const graphCms = new GraphQLClient("https://api-eu-west-2.hygraph.com/v2/cle3apban0jyl01uh6btpejkt/master");
 
@@ -13,6 +17,7 @@ const QUERY = gql`
       slug,
       availability, 
       title,
+      detailedDescription,
       coverImage {
         url
       },
@@ -36,6 +41,12 @@ export async function getStaticProps(){
 const ListingsPage = ({propertyListings}) => {
   const [activeTag, setActiveTags] = React.useState("All");
   const [filteredProperties, setFilteredProperties] = React.useState([...propertyListings]);
+  const [animateCard, setAnimateCard] = React.useState({ y: 0, opacity: 1 });
+
+  const description = (x) => {
+    return x.slice(0, 3)
+  }
+
 
   const tags = [
     {displaytext: "ALL", tag: "All"},
@@ -55,12 +66,19 @@ const ListingsPage = ({propertyListings}) => {
   }
 
   const updateFilteredProperties = (x) => {
-    if(x !== "All"){
-      const newProperties = propertyListings.filter((property) => availabilityTags(property.availability) === x);
-      setFilteredProperties([...newProperties]);
-    } else {
-      setFilteredProperties([...propertyListings]);
-    }
+    setActiveTags(x)
+    setAnimateCard([{y: 100, opacity:0}]);
+
+    setTimeout(() => {
+      setAnimateCard([{y: 0, opacity: 1}]);
+      if(x !== "All"){
+        const newProperties = propertyListings.filter((property) => availabilityTags(property.availability) === x);
+        setFilteredProperties([...newProperties]);
+      } else {
+        setFilteredProperties([...propertyListings]);
+      }
+    }, 500)
+    
 
 
   }
@@ -78,17 +96,29 @@ const ListingsPage = ({propertyListings}) => {
                   {tags.map(({displaytext, tag}, i) => (
                     <p  className={`${activeTag === tag? "active-tag" : ""} listing-tag`} key={i} onClick={() => {
                       updateFilteredProperties(tag);
-                      setActiveTags(tag);
                     }}>{displaytext}</p>
                   ))}
                 </div>
-                <div className="listings-div">
+                <motion.div className="listings-div" animate = {animateCard}
+      transition ={{ duration: 0.5, delayChildren: 0.5 }}>
                   {
-                    filteredProperties.map(({id, title}) => (
-                      <div className="listing-card" key={id}>{title}</div>
+                    filteredProperties.map(({id, title, coverImage, slug, detailedDescription}) => (
+                      <div className="listing-card" key={id}>
+                        <img src={coverImage.url} className="coverImage" alt={title} />
+                        <h3>{title}</h3>
+                        <div className="features">
+                          <h5>Featuring: </h5>
+                          {detailedDescription.slice(0,3).map((item, i) => (
+                            <p key={i} className="smaller-text">{item}</p>
+                            // console.log(item)
+                          ))}
+                        </div>
+                        <PrimaryBtn link={`/listings/${slug}`} text="view property" borderRadius ="10px" color="#fff" width="100%" fontSize = "15px" />
+
+                      </div>
                     ))
                   }
-                </div>
+                </motion.div>
               </div>
             {/* {propertyListings.map(({title, id}) => (
                 <h1 key={id}>{title}</h1>

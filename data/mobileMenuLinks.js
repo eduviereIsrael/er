@@ -4,19 +4,19 @@ export const MenuLinks = [
         item: "Home"
     },
     {
-        link: "listings",
+        link: "/listings",
         item: "Listings"
     },
     {
-        link: "blog",
+        link: "/blog",
         item: "Blog"
     },
     {
-        link: "about",
+        link: "/about",
         item: "About"
     },
     {
-        link: "contact",
+        link: "/contact",
         item: "Contact"
     },
 ]

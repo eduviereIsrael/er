@@ -10,7 +10,7 @@ const Propertycard = ({item}) => {
                 <span><img src='/location-icon.svg'/> <p className='smaller-text'>{item.address}</p> </span>
                 <span><img src='/rooms-icon.svg' /><p className='smaller-text'>{item.shortInfo}</p></span>
             </div>
-            <SecondaryBtn link={`/listings/${item.slug}`} text="view property" borderRadius ="10px" color="#fff" width="100%" fontSize = "15px" />
+            <SecondaryBtn link={`/listings/${item.slug}`} text="view property" borderRadius ="10px" color="#fff" width="100%" fontSize = "13px" />
             </div>
         </div>
         

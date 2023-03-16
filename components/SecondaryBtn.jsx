@@ -19,6 +19,7 @@ const SecondaryBtn = (props) => {
     // flexDirection: 'row',
     // alignItems: 'center',
     textAlign: "center",
+    marginTop: "auto"
   };
 
 //   const btnTextStyle = {
