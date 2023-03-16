@@ -1,0 +1,29 @@
+.listings-page{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .banner {
+            width: 100%;
+            margin-bottom: 50px;
+            padding: 100px 40px 100px;
+            border-radius: 20px;
+            background: url('/listing-banner.webp');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.15);
+            
+            // background-color: red;
+
+            h1 {
+                color: #fff;
+            }
+        }
+    }
+}

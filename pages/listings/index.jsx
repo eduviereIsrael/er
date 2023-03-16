@@ -36,9 +36,13 @@ const ListingsPage = ({propertyListings}) => {
     <MainLayout>
         <div className='listings-page'>
             <div className="container">
-            {propertyListings.map(({title, id}) => (
+              <div className="banner">
+                <h1>Get In Early</h1>
+                <h1>Get In Cheaper</h1>
+              </div>
+            {/* {propertyListings.map(({title, id}) => (
                 <h1 key={id}>{title}</h1>
-            ))}
+            ))} */}
             </div>
             
         </div>
