@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 import React from 'react';
+import Head from 'next/head';
 import { GraphQLClient, gql } from 'graphql-request';
 import MainLayout from "../../components/MainLayout"
 // import SecondaryBtn from '../../components/SecondaryBtn';
@@ -84,6 +85,13 @@ const ListingsPage = ({propertyListings}) => {
   }
 
   return (
+    <>
+    <Head>
+      <title>Get the best offshore and onshore properties in Lagos</title>
+      <meta name="description" content="Rent/own a property in Lagos" />
+      <link rel="icon" href="/logo.svg" />
+
+    </Head>
     <MainLayout>
         <div className='listings-page'>
             <div className="container">
@@ -127,6 +135,8 @@ const ListingsPage = ({propertyListings}) => {
             
         </div>
     </MainLayout>
+    </>
+    
     
   )
 }
