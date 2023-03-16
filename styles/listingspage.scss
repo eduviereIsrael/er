@@ -25,5 +25,41 @@
                 color: #fff;
             }
         }
+
+        .listings-container{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+
+
+            .listing-tags{
+                display: flex;
+                flex-direction: row;
+
+                .listing-tag{
+                    padding: 10px 15px;
+                    border-radius: 10px;
+                    background-color: #e8e8e8;
+                    color: #000;
+                    font-size: 13px;
+                    font-weight: 500;
+                    margin: 0 20px;
+                    font-family: Arial, Helvetica, sans-serif;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .active-tag{
+                    background-color: rgb(63, 124, 255);
+                    color: #fff;
+                    font-weight: 500;
+
+
+                }
+            }
+        }
     }
 }
