@@ -5,6 +5,7 @@ import MainLayout from "../../components/MainLayout";
 import { useStateContext } from '../../Context/StateContext';
 import React, { Component, useState } from 'react';
 import Link from "next/link"
+import ShareLink from '../../components/ShareLink';
 
 function PropertyListingPage({propertyListing}){
   const {address, 
@@ -64,7 +65,9 @@ function PropertyListingPage({propertyListing}){
                 </ul>
               </div>
             </div>
-            <div className="right-section">Hello</div>
+            <div className="right-section">
+              <ShareLink />
+            </div>
             
           </div>
         </div>
