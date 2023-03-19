@@ -12,6 +12,7 @@ import { motion, useScroll } from 'framer-motion';
 import BlogCard from '../components/BlogCard';
 import Propertycard from '../components/PropertyCard';
 import { useStateContext } from '../Context/StateContext';
+import { perks } from '../data/perks';
 
 
 
@@ -106,11 +107,25 @@ export default function Home({propertyListings}) {
 
         <div className='hero'>
           <div className='container'>
-            <div className='hero-div'>
-              <h1>WE MAKE HOME OWNERSHIP IN LAGOS A SEAMLESS AND FULFILLING JOURNEY</h1>
-              <SecondaryBtn text = 'Contact Us' link='/' />
+            <motion.div className='hero-div'
+              initial={{opacity: 0}} 
+              whileInView={{opacity: 1}}
+              transition={{delay: 0.3}}
+            >
+              <motion.h1 
+                initial={{opacity: 0, x: 60}} 
+                whileInView={{opacity: 1, x: 0}}
+                transition={{delay: 0.5}}
+              >WE MAKE HOME OWNERSHIP IN LAGOS A SEAMLESS AND FULFILLING JOURNEY</motion.h1>
+              <motion.div
+                initial={{opacity: 0, x: 60}} 
+                whileInView={{opacity: 1, x: 0}}
+                transition={{delay: 0.7}}
+              >
+                <SecondaryBtn text = 'Contact Us' link='/' />
+              </motion.div>
               {/* <h1>{listings.address}</h1> */}
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -125,35 +140,56 @@ export default function Home({propertyListings}) {
             <div className='perks-div' >
               <h2>We put our clients first.</h2>
             <div className='perks-cont'>
-              <div className="perks-card">
-                <img src='/perks-icon.svg' />
-                <h5>Perks title</h5>
-                <p className='small-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
-              </div>
-              <div className="perks-card">
-                <img src='/perks-icon.svg' />
-                <h5>Perks title</h5>
-                <p className='small-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
-              </div>
-              <div className="perks-card">
-                <img src='/perks-icon.svg' />
-                <h5>Perks title</h5>
-                <p className='small-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
-              </div>
-              <div className="perks-card">
-                <img src='/perks-icon.svg' />
-                <h5>Perks title</h5>
-                <p className='small-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
-              </div>
+              {
+                perks.map((perk, i) => (
+                  <motion.div 
+                    key={i} 
+                    className="perks-card"
+                    // initial={{y: -60, scale: 0.8}}
+                    // whileInView={{y: 0, scale: 1}}
+                    // transition={{duration: 0.7, delay: 0, type: 'ease'}}
+                  >
+                    <motion.img 
+                      src='/perks-icon.svg' 
+                      initial={{ scale: 0.3}}
+                      whileInView={{ scale: 1}}
+                      transition={{duration: 0.5, delay: 0, type: 'ease'}}
+                    />
+                    <h5>{perk.title}</h5>
+                    <p className='smaller-text'>{perk.text}</p>
+                  </motion.div>
+                ))
+              }
+             
             </div>
             {/* <div ref={perkImgDivRef}></div> */}
             </div>
             <div className="problems-div" >
               <div className="img-div" >
-                <div className='img-bg'></div>
-                <img src='problem-img2.png' className='img-1' ref={ref} />
-                <img  src='problem-img2.png' className='img-3' />
-                <motion.img src='problem-img1.png' whileInView={{y: perkImgTop}} initial={{y: perkImgTop}} transition={{duration: 0}} className='img-2' /*style={{top: `${perkImgTop}px`}}*/ />
+                <motion.div 
+                  className='img-bg'
+                  whileInView={{opacity: 1, y: 0}} 
+                  initial={{opacity: 0, y: 80}} 
+                  transition={{duration: 0.5, delay: 0.3}} 
+                ></motion.div>
+                <motion.img 
+                  src='problem-img2.png' 
+                  whileInView={{opacity: 1, y: 0}} 
+                  initial={{opacity: 1, y: 80}} 
+                  transition={{duration: 0.5, delay: 0.2}} 
+                  className='img-1' ref={ref} />
+                <motion.img  
+                  src='problem-img2.png'
+                  // whileInView={{opacity: 0, y: 0}} 
+                  // initial={{opacity: 0, y: 80}} 
+                  // transition={{duration: 0.5, delay: 0}} 
+                  className='img-3' />
+                <motion.img 
+                  src='problem-img1.png' 
+                  whileInView={{opacity: 1, y: 120}} 
+                  initial={{opacity: 0, y: 150}} 
+                  transition={{duration: 0.5, delay: 0.5}} 
+                  className='img-2' /*style={{top: `${perkImgTop}px`}}*/ />
               </div>
               <div className='problem-div'>
                 <h2>A realtor you can trust</h2>
