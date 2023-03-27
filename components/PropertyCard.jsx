@@ -1,6 +1,6 @@
 /* eslint-disable */
 import SecondaryBtn from "./SecondaryBtn";
-import Link from "next/link";
+
 
 const Propertycard = ({item}) => {
     return (

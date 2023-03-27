@@ -31,7 +31,7 @@ h2{
     margin-bottom: 30px;
     font-size: 5vw;
     @media screen and (min-width: 768px) {
-        font-size: 2.4vw;
+        font-size: 2.2vw;
         
     }
 }
@@ -562,12 +562,15 @@ p{
             .blog-card{
                 width: 100%;
                 // max-width: 300px;
+                margin-right: 15px;
+                color: #000;
 
                 .details{
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
                     width: 100%;
+                    color: #000;
 
                     .tags{
                         display: flex;
@@ -580,6 +583,7 @@ p{
                             background-color: #F4F4F9;
                             padding: 5px 10px;
                             border-radius: 3px;
+                            color: #5a5a5a;
                         }
                     }
                 }
@@ -592,6 +596,13 @@ p{
             @media screen and (min-width: 768px) {
                 gap: 40px;
                 padding: unset;
+                
+                
+                .blog-card{
+                    margin-right: 15px;
+                    width: 300px;
+
+                }
             }
         }
     }

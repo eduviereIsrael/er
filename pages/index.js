@@ -32,18 +32,36 @@ const QUERY = gql`
   }
 `;
 
+const BLOGQUERY = gql`
+  {
+    blogs {
+      blogTitle,
+      id,
+      publishedDate,
+      readTime,
+      openingParagraph,
+      slug,
+      displayImage {
+        url
+      }
+    }
+  }
+`;
+
 export async function getStaticProps(){
     const {propertyListings} = await graphCms.request(QUERY);
+    const { blogs } = await graphCms.request(BLOGQUERY)
 
     return {
       props: {
         propertyListings,
+        blogs
       },
       revalidate: 10,
     }
 }
 
-export default function Home({propertyListings}) {
+export default function Home({propertyListings, blogs}) {
   const [name, setName] = useState() ;
   const [perkImgTop, setPerkImgTop] = useState(140);
   const [divTopOffset, setDivTopOffset] = useState(0);
@@ -52,6 +70,7 @@ export default function Home({propertyListings}) {
 
   const {scrollYProgress} = useScroll();
   const { activeNavbar} = useStateContext();
+  // console.log(blogs)
 
 
   const handleScroll = (event) => {
@@ -75,7 +94,7 @@ export default function Home({propertyListings}) {
     // console.log(data)
   })
 
-  const blogs = [
+  const blogsDemo = [
     {
       title: "3 things you must check before settling into your new apartment.",
       date: "24th Nov 2022",
@@ -271,8 +290,8 @@ export default function Home({propertyListings}) {
           <div className="container">
             <h2>Stay Informed with our latest blogs</h2>
             <div className='blog-cont'>
-              {blogs.map((item, i) => (
-                <BlogCard key={i} image={item.image} title={item.title} readTime={item.readTime} date={item.date}  />
+              {blogs.map((item) => (
+                <BlogCard key={item.id} blog={item}  />
               ))}
             </div>
           </div>
@@ -283,3 +302,4 @@ export default function Home({propertyListings}) {
     
   )
 }
+

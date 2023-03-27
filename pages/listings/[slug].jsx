@@ -75,9 +75,6 @@ function PropertyListingPage({propertyListing}){
     )
 }
 
-// PropertyListingPage.getInitialProps = async ({query, req, asPath}) => {
-//   throw new error("Error before page load")
-// }
 
 
 const graphCms = new GraphQLClient("https://api-eu-west-2.hygraph.com/v2/cle3apban0jyl01uh6btpejkt/master");
@@ -111,7 +108,7 @@ const SLUGLIST = gql `
     slug
   }
 }
-`
+`;
 
 export async function getStaticProps({params}){
   const slug = params.slug
